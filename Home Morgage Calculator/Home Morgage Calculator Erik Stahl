@@ -1,0 +1,27 @@
+enum HomeMorgageCalculator
+let HomeMorgageCalculator = Currency.USA
+func convert(_dollars: Double) -> Double
+switch Currency
+case .USA:
+    print()
+    USA * dollars
+    default:
+    USA * dollars
+
+    return dollars
+
+    func convert(amountString: String)
+    guard let amount = Double(amountString) else { return nil }
+    let convertCurrency = convert(amount)
+   
+    return String(convertCurrency)
+    
+LoanAmount(amountString: "$100,000")
+Currency = .USA
+var LoanAmount = 100000 * .08 / 12
+
+// loan amount $100,000 
+30 years fix 8% per year
+$100,000 x.08 = $8,000
+$8,000 /12 = $666.666 (round to 666.67)
+$666.67 monthly payment 
