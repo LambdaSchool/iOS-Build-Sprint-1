@@ -12,6 +12,9 @@
 		846E35B7249859C8004CC23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E35B5249859C8004CC23F /* Main.storyboard */; };
 		846E35B9249859CB004CC23F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846E35B8249859CB004CC23F /* Assets.xcassets */; };
 		846E35BC249859CB004CC23F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E35BA249859CB004CC23F /* LaunchScreen.storyboard */; };
+		846E35C42499ABA5004CC23F /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E35C32499ABA5004CC23F /* ConverterViewController.swift */; };
+		846E35C62499ABE5004CC23F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E35C52499ABE5004CC23F /* Currency.swift */; };
+		846E35C82499AF6C004CC23F /* CurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E35C72499AF6C004CC23F /* CurrencyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		846E35B8249859CB004CC23F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846E35BB249859CB004CC23F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846E35BD249859CB004CC23F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846E35C32499ABA5004CC23F /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
+		846E35C52499ABE5004CC23F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		846E35C72499AF6C004CC23F /* CurrencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,9 @@
 				846E35AF249859C7004CC23F /* AppDelegate.swift */,
 				846E35B1249859C7004CC23F /* SceneDelegate.swift */,
 				846E35B5249859C8004CC23F /* Main.storyboard */,
+				846E35C52499ABE5004CC23F /* Currency.swift */,
+				846E35C72499AF6C004CC23F /* CurrencyController.swift */,
+				846E35C32499ABA5004CC23F /* ConverterViewController.swift */,
 				846E35B8249859CB004CC23F /* Assets.xcassets */,
 				846E35BA249859CB004CC23F /* LaunchScreen.storyboard */,
 				846E35BD249859CB004CC23F /* Info.plist */,
@@ -135,8 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846E35C62499ABE5004CC23F /* Currency.swift in Sources */,
 				846E35B0249859C7004CC23F /* AppDelegate.swift in Sources */,
+				846E35C82499AF6C004CC23F /* CurrencyController.swift in Sources */,
 				846E35B2249859C7004CC23F /* SceneDelegate.swift in Sources */,
+				846E35C42499ABA5004CC23F /* ConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

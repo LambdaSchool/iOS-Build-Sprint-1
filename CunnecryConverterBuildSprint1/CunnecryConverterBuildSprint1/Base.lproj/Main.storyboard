@@ -10,22 +10,24 @@
         <!--Currency Converter-->
         <scene sceneID="ra7-k2-ZmQ">
             <objects>
-                <viewController title="Currency Converter" id="bS9-D5-6ic" sceneMemberID="viewController">
+                <viewController title="Currency Converter" id="bS9-D5-6ic" customClass="ConverterViewController" customModule="CunnecryConverterBuildSprint1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZIn-ig-NVt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW5-qN-kAl">
-                                <rect key="frame" x="20" y="194" width="174" height="216"/>
+                                <rect key="frame" x="20" y="194" width="174" height="217"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="217" id="ui5-ft-IDm"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="bS9-D5-6ic" id="6Wx-1r-z1f"/>
+                                    <outlet property="delegate" destination="bS9-D5-6ic" id="9tj-lr-tSk"/>
+                                </connections>
                             </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount to convert" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HgU-7y-PqZ">
                                 <rect key="frame" x="20" y="133" width="174" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Converted Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJL-PN-HCn">
-                                <rect key="frame" x="221" y="133" width="174" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -48,39 +50,57 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3W-hf-9w5">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3W-hf-9w5">
                                 <rect key="frame" x="218" y="194" width="176" height="217"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bS9-D5-6ic" id="Lev-6Q-nzZ"/>
+                                    <outlet property="delegate" destination="bS9-D5-6ic" id="ZgU-aU-aLX"/>
+                                </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converted Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySm-rB-gtA">
+                                <rect key="frame" x="218" y="133" width="176" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="B3W-hf-9w5" firstAttribute="leading" secondItem="ZW5-qN-kAl" secondAttribute="trailing" constant="24" id="38M-NC-kW5"/>
-                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="centerX" secondItem="Cnn-Y8-2om" secondAttribute="centerX" id="4pb-LW-Y3N"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="baseline" secondItem="gJL-PN-HCn" secondAttribute="baseline" id="4ro-wt-5ff"/>
-                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="top" secondItem="B3W-hf-9w5" secondAttribute="top" id="9wL-UO-hmd"/>
-                            <constraint firstItem="B3W-hf-9w5" firstAttribute="trailing" secondItem="ZIn-ig-NVt" secondAttribute="trailingMargin" id="Ab0-at-i17"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="trailing" secondItem="ZW5-qN-kAl" secondAttribute="trailing" id="CIf-Tk-Psm"/>
-                            <constraint firstItem="npF-SR-Uyc" firstAttribute="bottom" secondItem="s78-8z-RA4" secondAttribute="bottom" constant="20" id="Cyj-fV-YPO"/>
-                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="leading" secondItem="HgU-7y-PqZ" secondAttribute="trailing" constant="7.5" id="DGf-ht-Fen"/>
-                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="leading" secondItem="npF-SR-Uyc" secondAttribute="leading" id="Kom-xV-6Us"/>
-                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="top" secondItem="QoJ-hY-UKc" secondAttribute="bottom" constant="52" id="Ms9-1w-gyB"/>
-                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="centerX" secondItem="s78-8z-RA4" secondAttribute="centerX" id="OMI-Bn-Xra"/>
-                            <constraint firstItem="B3W-hf-9w5" firstAttribute="trailing" secondItem="s78-8z-RA4" secondAttribute="trailing" id="R8q-zR-IhH"/>
-                            <constraint firstItem="s78-8z-RA4" firstAttribute="top" secondItem="ZW5-qN-kAl" secondAttribute="bottom" constant="17" id="RMG-BU-48X"/>
-                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="top" secondItem="HgU-7y-PqZ" secondAttribute="bottom" constant="26" id="Yn3-Z1-aJg"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="top" secondItem="QoJ-hY-UKc" secondAttribute="bottom" constant="45" id="Yty-PI-yoM"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="centerY" secondItem="Cnn-Y8-2om" secondAttribute="centerY" id="buU-CY-gk4"/>
-                            <constraint firstItem="npF-SR-Uyc" firstAttribute="trailing" secondItem="gJL-PN-HCn" secondAttribute="trailing" constant="19" id="g6C-nW-o2f"/>
-                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="leading" secondItem="s78-8z-RA4" secondAttribute="leading" id="mIu-z7-Igl"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="leading" secondItem="ZIn-ig-NVt" secondAttribute="leadingMargin" id="o0f-R8-Rhk"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="bottom" secondItem="gJL-PN-HCn" secondAttribute="bottom" id="pBT-EY-BgI"/>
-                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="top" secondItem="npF-SR-Uyc" secondAttribute="top" id="uMv-xM-tXi"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="leading" secondItem="ZW5-qN-kAl" secondAttribute="leading" id="uoA-rS-G7A"/>
-                            <constraint firstItem="gJL-PN-HCn" firstAttribute="leading" secondItem="Cnn-Y8-2om" secondAttribute="trailing" constant="8.5" id="zIb-C6-a2N"/>
+                            <constraint firstItem="s78-8z-RA4" firstAttribute="top" secondItem="ZW5-qN-kAl" secondAttribute="bottom" constant="16" id="6gM-wO-EOo"/>
+                            <constraint firstItem="npF-SR-Uyc" firstAttribute="bottom" secondItem="s78-8z-RA4" secondAttribute="bottom" constant="20" id="8VC-dy-noq"/>
+                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="leading" secondItem="HgU-7y-PqZ" secondAttribute="trailing" constant="7.5" id="ASa-2l-Jcm"/>
+                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="top" secondItem="B3W-hf-9w5" secondAttribute="top" id="CkE-f7-rgu"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="centerY" secondItem="Cnn-Y8-2om" secondAttribute="centerY" id="HlG-rA-9A4"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="trailing" secondItem="ZW5-qN-kAl" secondAttribute="trailing" id="HyG-uq-pEy"/>
+                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="centerX" secondItem="Cnn-Y8-2om" secondAttribute="centerX" id="L6E-4O-Iqc"/>
+                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="centerX" secondItem="s78-8z-RA4" secondAttribute="centerX" id="LS2-iC-ccV"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="top" secondItem="ySm-rB-gtA" secondAttribute="top" id="PLc-RS-B27"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="bottom" secondItem="ySm-rB-gtA" secondAttribute="bottom" id="Pkg-8B-8gK"/>
+                            <constraint firstItem="ySm-rB-gtA" firstAttribute="trailing" secondItem="B3W-hf-9w5" secondAttribute="trailing" id="Uns-8B-Tas"/>
+                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="leading" secondItem="s78-8z-RA4" secondAttribute="leading" id="XNi-3P-XNL"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="leading" secondItem="ZIn-ig-NVt" secondAttribute="leadingMargin" id="Xc4-dc-0dl"/>
+                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="top" secondItem="npF-SR-Uyc" secondAttribute="top" id="cOr-xM-YJ6"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="top" secondItem="QoJ-hY-UKc" secondAttribute="bottom" constant="45" id="dOa-o8-X8g"/>
+                            <constraint firstItem="ySm-rB-gtA" firstAttribute="trailing" secondItem="ZIn-ig-NVt" secondAttribute="trailingMargin" id="gZv-g6-5fU"/>
+                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="top" secondItem="QoJ-hY-UKc" secondAttribute="bottom" constant="52" id="goK-S2-JND"/>
+                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="leading" secondItem="npF-SR-Uyc" secondAttribute="leading" id="krL-2L-AS0"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="leading" secondItem="ZW5-qN-kAl" secondAttribute="leading" id="kuk-ur-93z"/>
+                            <constraint firstItem="ySm-rB-gtA" firstAttribute="leading" secondItem="B3W-hf-9w5" secondAttribute="leading" id="sNw-FW-0SF"/>
+                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="bottom" secondItem="B3W-hf-9w5" secondAttribute="bottom" id="sR5-hg-sFt"/>
+                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="top" secondItem="HgU-7y-PqZ" secondAttribute="bottom" constant="26" id="vG6-wg-Qrn"/>
+                            <constraint firstItem="ySm-rB-gtA" firstAttribute="leading" secondItem="Cnn-Y8-2om" secondAttribute="trailing" constant="5.5" id="wOH-40-hKi"/>
+                            <constraint firstItem="B3W-hf-9w5" firstAttribute="trailing" secondItem="s78-8z-RA4" secondAttribute="trailing" id="wdF-Es-dyn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="npF-SR-Uyc"/>
                     </view>
+                    <connections>
+                        <outlet property="amountToConvertTextField" destination="HgU-7y-PqZ" id="N62-4Q-9PC"/>
+                        <outlet property="convertedAmountTextView" destination="ySm-rB-gtA" id="D14-Xo-k9t"/>
+                        <outlet property="currencyPicker1" destination="ZW5-qN-kAl" id="lAL-fQ-wHl"/>
+                        <outlet property="currencyPicker2" destination="B3W-hf-9w5" id="CU1-se-BWx"/>
+                        <outlet property="exhchangeRateTextDisplay" destination="s78-8z-RA4" id="3Mv-ck-dDE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wk8-5c-tnw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
