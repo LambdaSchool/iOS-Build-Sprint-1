@@ -8,9 +8,6 @@
 
 import UIKit
 
-struct Currency {
-    var type: String
-    var rate: Double
+struct Currency: Codable {
+    let rates: [String: Double]
 }
-
-
