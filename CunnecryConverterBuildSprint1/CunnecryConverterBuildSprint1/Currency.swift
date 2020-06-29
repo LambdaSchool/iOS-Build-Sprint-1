@@ -9,5 +9,5 @@
 import UIKit
 
 struct Currency: Codable {
-    let newRates: [String: Double] = [:]
+    let rates: [String: Double] = [:]
 }

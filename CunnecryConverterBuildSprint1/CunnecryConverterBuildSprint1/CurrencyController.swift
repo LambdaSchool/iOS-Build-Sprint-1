@@ -10,23 +10,22 @@ import UIKit
 
 
 protocol CurrencyControllerDelegate {
-    func fetchRates()
+    func didfetchRates()
 }
 
 class CurrencyController {
+    
+    var delegate: CurrencyControllerDelegate?
 
-    init() {
-        self.fetchRates()
-        print(newRates)
+    var newRates: [String: Double] = [:] {
+        didSet { delegate?.didfetchRates()
+            print(newRates)
+        }
     }
-    
-
-    
-    var newRates: [String: Double] = [:]
     
     func fetchRates() {
         
-        let url = URL(string: "http://data.fixer.io/api/latest?access_key=3d89b4dea4fd6268fa9743bb9381778d")!
+        let url = URL(string: "https://api.exchangeratesapi.io/latest?base=USD")!
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
@@ -38,11 +37,12 @@ class CurrencyController {
                 print("No data returned when fetching currency rates.")
                 return
             }
-            
+            let jsonString = String(data: data, encoding: .utf8)
+            print(jsonString)
             do {
                 let currency = try JSONDecoder().decode(Currency.self, from: data)
                 DispatchQueue.main.async {
-                    self.newRates = currency.newRates
+                    self.newRates = currency.rates
                 }
                 
             } catch {
