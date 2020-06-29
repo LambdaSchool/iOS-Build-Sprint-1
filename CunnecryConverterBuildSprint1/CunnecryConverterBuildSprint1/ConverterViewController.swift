@@ -8,195 +8,196 @@
 
 import UIKit
 
-protocol DatePickerDelegate {
-    func currencyTypeWasChosen(_ date: Date)
-}
-
-class ConverterViewController: UIViewController {
+class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    @IBOutlet weak var currencyPicker1: UIPickerView!
-    @IBOutlet weak var currencyPicker2: UIPickerView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBOutlet weak var currencyPicker: UIPickerView!
+    
     
     @IBOutlet weak var amountToConvertTextField: UITextField!
-    @IBOutlet weak var convertedAmountTextView: UILabel!
     
     
-    @IBOutlet weak var exhchangeRateTextDisplay: UITextView!
+    @IBOutlet weak var convertedAmountTextField: UITextField!
     
-    var rates: [String: Double] = ["AED": 4.118812,
-                                   "AFN": 88.147468,
-                                   "ALL": 124.479404,
-                                   "AMD": 538.152867,
-                                   "ANG": 2.011935,
-                                   "AOA": 674.711309,
-                                   "ARS": 78.128771,
-                                   "AUD": 1.634094,
-                                   "AWG": 2.018368,
-                                   "AZN": 1.918944,
-                                   "BAM": 1.950101,
-                                   "BBD": 2.274499,
-                                   "BDT": 95.208202,
-                                   "BGN": 1.957133,
-                                   "BHD": 0.423476,
-                                   "BIF": 2137.82893,
-                                   "BMD": 1.121316,
-                                   "BND": 1.561327,
-                                   "BOB": 7.739244,
-                                   "BRL": 6.030662,
-                                   "BSD": 1.12649,
-                                   "BTC": 0.000121,
-                                   "BTN": 85.347061,
-                                   "BWP": 13.237117,
-                                   "BYN": 2.681056,
-                                   "BYR": 21977.784966,
-                                   "BZD": 2.259362,
-                                   "CAD": 1.524207,
-                                   "CDF": 2085.647531,
-                                   "CHF": 1.065872,
-                                   "CLF": 0.033221,
-                                   "CLP": 916.666556,
-                                   "CNY": 7.946985,
-                                   "COP": 4205.494006,
-                                   "CRC": 646.722426,
-                                   "CUC": 1.121316,
-                                   "CUP": 29.714862,
-                                   "CVE": 110.662408,
-                                   "CZK": 26.682813,
-                                   "DJF": 199.280521,
-                                   "DKK": 7.45657,
-                                   "DOP": 65.478254,
-                                   "DZD": 144.927917,
-                                   "EGP": 18.143332,
-                                   "ERN": 16.819367,
-                                   "ETB": 38.595909,
-                                   "EUR": 1,
-                                   "FJD": 2.443012,
-                                   "FKP": 0.902062,
-                                   "GBP": 0.901879,
-                                   "GEL": 3.419811,
-                                   "GGP": 0.902062,
-                                   "GHS": 6.533701,
-                                   "GIP": 0.902062,
-                                   "GMD": 57.972489,
-                                   "GNF": 10832.319834,
-                                   "GTQ": 8.634683,
-                                   "GYD": 234.405041,
-                                   "HKD": 8.690459,
-                                   "HNL": 28.010488,
-                                   "HRK": 7.549705,
-                                   "HTG": 121.240765,
-                                   "HUF": 345.886631,
-                                   "IDR": 15959.179766,
-                                   "ILS": 3.867098,
-                                   "IMP": 0.902062,
-                                   "INR": 85.505905,
-                                   "IQD": 1344.80003,
-                                   "IRR": 47212.991842,
-                                   "ISK": 153.406874,
-                                   "JEP": 0.902062,
-                                   "JMD": 157.943408,
-                                   "JOD": 0.795026,
-                                   "JPY": 119.889979,
-                                   "KES": 119.20711,
-                                   "KGS": 83.951999,
-                                   "KHR": 4581.426707,
-                                   "KMF": 491.977556,
-                                   "KPW": 1009.253077,
-                                   "KRW": 1358.586515,
-                                   "KWD": 0.344973,
-                                   "KYD": 0.938717,
-                                   "KZT": 453.856565,
-                                   "LAK": 10125.479811,
-                                   "LBP": 1703.481963,
-                                   "LKR": 209.095816,
-                                   "LRD": 223.371045,
-                                   "LSL": 19.61205,
-                                   "LTL": 3.310953,
-                                   "LVL": 0.678272,
-                                   "LYD": 1.575885,
-                                   "MAD": 10.867223,
-                                   "MDL": 19.437411,
-                                   "MGA": 4311.458284,
-                                   "MKD": 61.44953,
-                                   "MMK": 1570.327298,
-                                   "MNT": 3161.79024,
-                                   "MOP": 8.947731,
-                                   "MRO": 400.310042,
-                                   "MUR": 44.852854,
-                                   "MVR": 17.267903,
-                                   "MWK": 825.288766,
-                                   "MXN": 25.473819,
-                                   "MYR": 4.79643,
-                                   "MZN": 78.323946,
-                                   "NAD": 19.626057,
-                                   "NGN": 434.505379,
-                                   "NIO": 38.036431,
-                                   "NOK": 10.678669,
-                                   "NPR": 136.556926,
-                                   "NZD": 1.745871,
-                                   "OMR": 0.431705,
-                                   "PAB": 1.1265,
-                                   "PEN": 3.939845,
-                                   "PGK": 3.862902,
-                                   "PHP": 56.240144,
-                                   "PKR": 186.603112,
-                                   "PLN": 4.449325,
-                                   "PYG": 7536.442605,
-                                   "QAR": 4.082697,
-                                   "RON": 4.841389,
-                                   "RSD": 117.598007,
-                                   "RUB": 78.355515,
-                                   "RWF": 1068.05307,
-                                   "SAR": 4.206678,
-                                   "SBD": 9.348353,
-                                   "SCR": 19.723664,
-                                   "SDG": 61.951964,
-                                   "SEK": 10.561206,
-                                   "SGD": 1.562867,
-                                   "SHP": 0.902062,
-                                   "SLL": 10932.82687,
-                                   "SOS": 653.727077,
-                                   "SRD": 8.362795,
-                                   "STD": 24725.396661,
-                                   "SVC": 9.808183,
-                                   "SYP": 575.26556,
-                                   "SZL": 19.4559,
-                                   "THB": 34.737799,
-                                   "TJS": 11.553654,
-                                   "TMT": 3.935818,
-                                   "TND": 3.2064,
-                                   "TOP": 2.544717,
-                                   "TRY": 7.690099,
-                                   "TTD": 7.611322,
-                                   "TWD": 33.155021,
-                                   "TZS": 2595.845682,
-                                   "UAH": 30.130245,
-                                   "UGX": 4175.332748,
-                                   "USD": 1.121316,
-                                   "UYU": 48.015988,
-                                   "UZS": 11393.687186,
-                                   "VEF": 11.199142,
-                                   "VND": 26148.982414,
-                                   "VUV": 131.076295,
-                                   "WST": 3.004179,
-                                   "XAF": 656.528186,
-                                   "XAG": 0.064447,
-                                   "XAU": 0.000649,
-                                   "XCD": 3.030411,
-                                   "XDR": 0.81641,
-                                   "XOF": 656.53405,
-                                   "XPF": 119.661061,
-                                   "YER": 280.666612,
-                                   "ZAR": 19.560215,
-                                   "ZMK": 10093.185582,
-                                   "ZMW": 20.363372,
-                                   "ZWL": 361.063611]
+//    let currencyController = CurrencyController()
+//
+//    let currency = Currency()
     
-}
-
-extension ConverterViewController: UIPickerViewDataSource {
+    let newRates: [String: Double] = ["AED": 4.120387,
+                                      "AFN": 86.365658,
+                                      "ALL": 124.36255,
+                                      "AMD": 539.895937,
+                                      "ANG": 2.012165,
+                                      "AOA": 656.118679,
+                                      "ARS": 78.689636,
+                                      "AUD": 1.629754,
+                                      "AWG": 2.019138,
+                                      "AZN": 1.90206,
+                                      "BAM": 1.956202,
+                                      "BBD": 2.26341,
+                                      "BDT": 95.090387,
+                                      "BGN": 1.95688,
+                                      "BHD": 0.423513,
+                                      "BIF": 2157.131006,
+                                      "BMD": 1.121743,
+                                      "BND": 1.560783,
+                                      "BOB": 7.740672,
+                                      "BRL": 6.013108,
+                                      "BSD": 1.121003,
+                                      "BTC": 0.000122,
+                                      "BTN": 84.732411,
+                                      "BWP": 13.258604,
+                                      "BYN": 2.673085,
+                                      "BYR": 21986.170019,
+                                      "BZD": 2.25961,
+                                      "CAD": 1.530176,
+                                      "CDF": 2126.825461,
+                                      "CHF": 1.063912,
+                                      "CLF": 0.032892,
+                                      "CLP": 907.603758,
+                                      "CNY": 7.940153,
+                                      "COP": 4186.346251,
+                                      "CRC": 649.067668,
+                                      "CUC": 1.121743,
+                                      "CUP": 29.726199,
+                                      "CVE": 110.285983,
+                                      "CZK": 26.69917,
+                                      "DJF": 199.566177,
+                                      "DKK": 7.454209,
+                                      "DOP": 65.25383,
+                                      "DZD": 144.970063,
+                                      "EGP": 18.142216,
+                                      "ERN": 16.826398,
+                                      "ETB": 38.519683,
+                                      "EUR": 1,
+                                      "FJD": 2.440745,
+                                      "FKP": 0.903162,
+                                      "GBP": 0.903149,
+                                      "GEL": 3.438124,
+                                      "GGP": 0.903162,
+                                      "GHS": 6.493535,
+                                      "GIP": 0.903162,
+                                      "GMD": 57.937827,
+                                      "GNF": 10804.258629,
+                                      "GTQ": 8.629041,
+                                      "GYD": 234.19454,
+                                      "HKD": 8.694128,
+                                      "HNL": 27.752031,
+                                      "HRK": 7.564988,
+                                      "HTG": 121.671061,
+                                      "HUF": 354.280448,
+                                      "IDR": 16021.299658,
+                                      "ILS": 3.856408,
+                                      "IMP": 0.903162,
+                                      "INR": 84.756124,
+                                      "IQD": 1338.272593,
+                                      "IRR": 47231.004232,
+                                      "ISK": 155.406205,
+                                      "JEP": 0.903162,
+                                      "JMD": 156.436356,
+                                      "JOD": 0.795286,
+                                      "JPY": 120.201512,
+                                      "KES": 119.351109,
+                                      "KGS": 84.26794,
+                                      "KHR": 4593.932827,
+                                      "KMF": 491.968573,
+                                      "KPW": 1009.630331,
+                                      "KRW": 1344.700978,
+                                      "KWD": 0.34534,
+                                      "KYD": 0.934169,
+                                      "KZT": 453.232163,
+                                      "LAK": 10122.734404,
+                                      "LBP": 1695.207296,
+                                      "LKR": 208.899866,
+                                      "LRD": 223.560152,
+                                      "LSL": 19.271904,
+                                      "LTL": 3.312217,
+                                      "LVL": 0.678531,
+                                      "LYD": 1.565784,
+                                      "MAD": 10.875769,
+                                      "MDL": 19.376612,
+                                      "MGA": 4341.107012,
+                                      "MKD": 61.686733,
+                                      "MMK": 1552.036048,
+                                      "MNT": 3164.659203,
+                                      "MOP": 8.948702,
+                                      "MRO": 400.46277,
+                                      "MUR": 45.154902,
+                                      "MVR": 17.297237,
+                                      "MWK": 826.395744,
+                                      "MXN": 25.460544,
+                                      "MYR": 4.799918,
+                                      "MZN": 78.533792,
+                                      "NAD": 19.271504,
+                                      "NGN": 434.485361,
+                                      "NIO": 38.89305,
+                                      "NOK": 10.834128,
+                                      "NPR": 135.570572,
+                                      "NZD": 1.743509,
+                                      "OMR": 0.431841,
+                                      "PAB": 1.121013,
+                                      "PEN": 3.934748,
+                                      "PGK": 3.882304,
+                                      "PHP": 55.955975,
+                                      "PKR": 187.600708,
+                                      "PLN": 4.454364,
+                                      "PYG": 7549.967772,
+                                      "QAR": 4.084225,
+                                      "RON": 4.8401,
+                                      "RSD": 117.52498,
+                                      "RUB": 77.569899,
+                                      "RWF": 1070.834055,
+                                      "SAR": 4.208319,
+                                      "SBD": 9.351919,
+                                      "SCR": 19.743299,
+                                      "SDG": 62.029676,
+                                      "SEK": 10.464626,
+                                      "SGD": 1.560844,
+                                      "SHP": 0.903162,
+                                      "SLL": 10942.606981,
+                                      "SOS": 651.733191,
+                                      "SRD": 8.36599,
+                                      "STD": 24734.829994,
+                                      "SVC": 9.808778,
+                                      "SYP": 575.749879,
+                                      "SZL": 19.575049,
+                                      "THB": 34.647848,
+                                      "TJS": 11.546496,
+                                      "TMT": 3.926102,
+                                      "TND": 3.20202,
+                                      "TOP": 2.565536,
+                                      "TRY": 7.689024,
+                                      "TTD": 7.579873,
+                                      "TWD": 33.088847,
+                                      "TZS": 2600.200871,
+                                      "UAH": 29.933726,
+                                      "UGX": 4192.597393,
+                                      "USD": 1,
+                                      "UYU": 47.278571,
+                                      "UZS": 11410.840231,
+                                      "VEF": 11.203414,
+                                      "VND": 26017.716807,
+                                      "VUV": 131.04987,
+                                      "WST": 2.998838,
+                                      "XAF": 656.075939,
+                                      "XAG": 0.063218,
+                                      "XAU": 0.000637,
+                                      "XCD": 3.031568,
+                                      "XDR": 0.810347,
+                                      "XOF": 656.075939,
+                                      "XPF": 119.634126,
+                                      "YER": 280.773925,
+                                      "ZAR": 19.231838,
+                                      "ZMK": 10097.029829,
+                                      "ZMW": 20.371141,
+                                      "ZWL": 361.201366]
+    
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return rates.count
+        return newRates.count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -204,16 +205,30 @@ extension ConverterViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(Array(rates.keys)[row])"
-        
+        return "\(Array(newRates.keys)[row])"
     }
     
-    //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    //        <#code#>
-    //    }
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        let currency1 = Array(newRates.values)[row]
+        guard let currency2 = NumberFormatter().number(from: amountToConvertTextField.text!)?.doubleValue else { return }
+        
+        func conversion() {
+            let result = currency1 * currency2
+            convertedAmountTextField.text = "\(result)"
+        }
+        conversion()
+        print(currency1)
+        print(currency2)
+    }
 }
-extension ConverterViewController: UIPickerViewDelegate {
-    
-}
+
+
+
+//    extension ConverterViewController: CurrencyControllerDelegate {
+//        func fetchRates() {
+//        }
+//}
+
+
 

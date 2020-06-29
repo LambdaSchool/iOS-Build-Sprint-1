@@ -8,9 +8,21 @@
 
 import UIKit
 
+
+protocol CurrencyControllerDelegate {
+    func fetchRates()
+}
+
 class CurrencyController {
 
-    var rates: [String: Double] = [:]
+    init() {
+        self.fetchRates()
+        print(newRates)
+    }
+    
+
+    
+    var newRates: [String: Double] = [:]
     
     func fetchRates() {
         
@@ -30,7 +42,7 @@ class CurrencyController {
             do {
                 let currency = try JSONDecoder().decode(Currency.self, from: data)
                 DispatchQueue.main.async {
-                    self.rates = currency.rates
+                    self.newRates = currency.newRates
                 }
                 
             } catch {
@@ -39,5 +51,9 @@ class CurrencyController {
             
         }.resume()
         
+        
     }
 }
+
+
+

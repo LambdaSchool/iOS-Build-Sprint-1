@@ -15,91 +15,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW5-qN-kAl">
-                                <rect key="frame" x="20" y="194" width="174" height="217"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HgU-7y-PqZ">
+                                <rect key="frame" x="36" y="132" width="343" height="57.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="217" id="ui5-ft-IDm"/>
+                                    <constraint firstAttribute="height" constant="57.5" id="whv-Y8-ZhS"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="bS9-D5-6ic" id="6Wx-1r-z1f"/>
-                                    <outlet property="delegate" destination="bS9-D5-6ic" id="9tj-lr-tSk"/>
+                                    <outlet property="delegate" destination="bS9-D5-6ic" id="6z0-Nh-qKB"/>
                                 </connections>
-                            </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount to convert" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HgU-7y-PqZ">
-                                <rect key="frame" x="20" y="133" width="174" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QoJ-hY-UKc">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4Sj-vj-2wj"/>
+                                    <constraint firstAttribute="width" constant="414" id="brh-VK-qiX"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Simple Currency Converter" id="BkB-Yh-k51"/>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I'd like to make this display exchange rates." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="s78-8z-RA4">
-                                <rect key="frame" x="20" y="427" width="374" height="415"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnn-Y8-2om">
-                                <rect key="frame" x="201.5" y="140" width="11" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fe6-zF-8Xf">
+                                <rect key="frame" x="36" y="243" width="342" height="57.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57.5" id="ZZu-nO-uF6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bS9-D5-6ic" id="bfS-wH-OVH"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5s3-nP-tTZ">
+                                <rect key="frame" x="183" y="205" width="49" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="BGD-UL-wFv"/>
+                                    <constraint firstAttribute="width" constant="49" id="TXi-c2-uB5"/>
+                                </constraints>
+                                <state key="normal" image="arrow.down" catalog="system"/>
+                            </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3W-hf-9w5">
-                                <rect key="frame" x="218" y="194" width="176" height="217"/>
+                                <rect key="frame" x="36" y="327" width="343" height="273"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="273" id="SDJ-sX-5CC"/>
+                                    <constraint firstAttribute="width" constant="343" id="hGr-AA-HfN"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="bS9-D5-6ic" id="Lev-6Q-nzZ"/>
                                     <outlet property="delegate" destination="bS9-D5-6ic" id="ZgU-aU-aLX"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converted Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySm-rB-gtA">
-                                <rect key="frame" x="218" y="133" width="176" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="s78-8z-RA4" firstAttribute="top" secondItem="ZW5-qN-kAl" secondAttribute="bottom" constant="16" id="6gM-wO-EOo"/>
-                            <constraint firstItem="npF-SR-Uyc" firstAttribute="bottom" secondItem="s78-8z-RA4" secondAttribute="bottom" constant="20" id="8VC-dy-noq"/>
-                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="leading" secondItem="HgU-7y-PqZ" secondAttribute="trailing" constant="7.5" id="ASa-2l-Jcm"/>
-                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="top" secondItem="B3W-hf-9w5" secondAttribute="top" id="CkE-f7-rgu"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="centerY" secondItem="Cnn-Y8-2om" secondAttribute="centerY" id="HlG-rA-9A4"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="trailing" secondItem="ZW5-qN-kAl" secondAttribute="trailing" id="HyG-uq-pEy"/>
-                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="centerX" secondItem="Cnn-Y8-2om" secondAttribute="centerX" id="L6E-4O-Iqc"/>
-                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="centerX" secondItem="s78-8z-RA4" secondAttribute="centerX" id="LS2-iC-ccV"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="top" secondItem="ySm-rB-gtA" secondAttribute="top" id="PLc-RS-B27"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="bottom" secondItem="ySm-rB-gtA" secondAttribute="bottom" id="Pkg-8B-8gK"/>
-                            <constraint firstItem="ySm-rB-gtA" firstAttribute="trailing" secondItem="B3W-hf-9w5" secondAttribute="trailing" id="Uns-8B-Tas"/>
-                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="leading" secondItem="s78-8z-RA4" secondAttribute="leading" id="XNi-3P-XNL"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="leading" secondItem="ZIn-ig-NVt" secondAttribute="leadingMargin" id="Xc4-dc-0dl"/>
-                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="top" secondItem="npF-SR-Uyc" secondAttribute="top" id="cOr-xM-YJ6"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="top" secondItem="QoJ-hY-UKc" secondAttribute="bottom" constant="45" id="dOa-o8-X8g"/>
-                            <constraint firstItem="ySm-rB-gtA" firstAttribute="trailing" secondItem="ZIn-ig-NVt" secondAttribute="trailingMargin" id="gZv-g6-5fU"/>
-                            <constraint firstItem="Cnn-Y8-2om" firstAttribute="top" secondItem="QoJ-hY-UKc" secondAttribute="bottom" constant="52" id="goK-S2-JND"/>
-                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="leading" secondItem="npF-SR-Uyc" secondAttribute="leading" id="krL-2L-AS0"/>
-                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="leading" secondItem="ZW5-qN-kAl" secondAttribute="leading" id="kuk-ur-93z"/>
-                            <constraint firstItem="ySm-rB-gtA" firstAttribute="leading" secondItem="B3W-hf-9w5" secondAttribute="leading" id="sNw-FW-0SF"/>
-                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="bottom" secondItem="B3W-hf-9w5" secondAttribute="bottom" id="sR5-hg-sFt"/>
-                            <constraint firstItem="ZW5-qN-kAl" firstAttribute="top" secondItem="HgU-7y-PqZ" secondAttribute="bottom" constant="26" id="vG6-wg-Qrn"/>
-                            <constraint firstItem="ySm-rB-gtA" firstAttribute="leading" secondItem="Cnn-Y8-2om" secondAttribute="trailing" constant="5.5" id="wOH-40-hKi"/>
-                            <constraint firstItem="B3W-hf-9w5" firstAttribute="trailing" secondItem="s78-8z-RA4" secondAttribute="trailing" id="wdF-Es-dyn"/>
+                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="trailing" secondItem="npF-SR-Uyc" secondAttribute="trailing" id="2Zn-qf-gfS"/>
+                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="top" secondItem="npF-SR-Uyc" secondAttribute="top" id="3D7-Ub-f8R"/>
+                            <constraint firstItem="npF-SR-Uyc" firstAttribute="trailing" secondItem="Fe6-zF-8Xf" secondAttribute="trailing" constant="36" id="5uQ-T8-MWR"/>
+                            <constraint firstItem="QoJ-hY-UKc" firstAttribute="leading" secondItem="npF-SR-Uyc" secondAttribute="leading" id="8fq-fk-rxj"/>
+                            <constraint firstItem="5s3-nP-tTZ" firstAttribute="leading" secondItem="npF-SR-Uyc" secondAttribute="leading" constant="183" id="AkZ-cx-LLB"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="top" secondItem="QoJ-hY-UKc" secondAttribute="bottom" constant="44" id="TID-u0-jOc"/>
+                            <constraint firstItem="npF-SR-Uyc" firstAttribute="trailing" secondItem="B3W-hf-9w5" secondAttribute="trailing" constant="35" id="VKJ-e8-lVL"/>
+                            <constraint firstItem="npF-SR-Uyc" firstAttribute="trailing" secondItem="5s3-nP-tTZ" secondAttribute="trailing" constant="182" id="Xlq-nv-2PV"/>
+                            <constraint firstItem="Fe6-zF-8Xf" firstAttribute="leading" secondItem="npF-SR-Uyc" secondAttribute="leading" constant="36" id="Yux-b0-lz2"/>
+                            <constraint firstItem="B3W-hf-9w5" firstAttribute="top" secondItem="Fe6-zF-8Xf" secondAttribute="bottom" constant="26.5" id="c0U-5f-0qu"/>
+                            <constraint firstItem="npF-SR-Uyc" firstAttribute="bottom" secondItem="B3W-hf-9w5" secondAttribute="bottom" constant="262" id="c8w-p9-Zr3"/>
+                            <constraint firstItem="npF-SR-Uyc" firstAttribute="trailing" secondItem="HgU-7y-PqZ" secondAttribute="trailing" constant="35" id="u66-J6-N45"/>
+                            <constraint firstItem="Fe6-zF-8Xf" firstAttribute="top" secondItem="5s3-nP-tTZ" secondAttribute="bottom" constant="16" id="vaD-QM-oRW"/>
+                            <constraint firstItem="5s3-nP-tTZ" firstAttribute="top" secondItem="HgU-7y-PqZ" secondAttribute="bottom" constant="15.5" id="wqF-YF-YPB"/>
+                            <constraint firstItem="HgU-7y-PqZ" firstAttribute="leading" secondItem="npF-SR-Uyc" secondAttribute="leading" constant="36" id="wtR-7j-2lO"/>
+                            <constraint firstItem="B3W-hf-9w5" firstAttribute="leading" secondItem="npF-SR-Uyc" secondAttribute="leading" constant="36" id="yCH-Rm-mxl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="npF-SR-Uyc"/>
                     </view>
                     <connections>
                         <outlet property="amountToConvertTextField" destination="HgU-7y-PqZ" id="N62-4Q-9PC"/>
-                        <outlet property="convertedAmountTextView" destination="ySm-rB-gtA" id="D14-Xo-k9t"/>
-                        <outlet property="currencyPicker1" destination="ZW5-qN-kAl" id="lAL-fQ-wHl"/>
-                        <outlet property="currencyPicker2" destination="B3W-hf-9w5" id="CU1-se-BWx"/>
-                        <outlet property="exhchangeRateTextDisplay" destination="s78-8z-RA4" id="3Mv-ck-dDE"/>
+                        <outlet property="convertedAmountTextField" destination="Fe6-zF-8Xf" id="sSc-pg-dnu"/>
+                        <outlet property="currencyPicker" destination="B3W-hf-9w5" id="lXp-6A-o8t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wk8-5c-tnw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -107,4 +100,7 @@
             <point key="canvasLocation" x="637.68115942028987" y="48.883928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.down" catalog="system" width="120" height="128"/>
+    </resources>
 </document>
