@@ -37,8 +37,6 @@ class CurrencyController {
                 print("No data returned when fetching currency rates.")
                 return
             }
-            let jsonString = String(data: data, encoding: .utf8)
-            print(jsonString)
             do {
                 let currency = try JSONDecoder().decode(Currency.self, from: data)
                 DispatchQueue.main.async {

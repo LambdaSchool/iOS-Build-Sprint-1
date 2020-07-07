@@ -16,7 +16,6 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
         currencyController.delegate = self
     }
     
-    
     @IBOutlet weak var currencyPicker: UIPickerView!
     
     
@@ -24,6 +23,8 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     
     @IBOutlet weak var convertedAmountTextField: UITextField!
+    
+    @IBOutlet weak var currencyDisplay: UILabel!
     
     let currencyController = CurrencyController()
     
@@ -86,24 +87,27 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
         guard let currency1 = newRates[currencyKey] else { return }
         guard let currency2 = NumberFormatter().number(from: amountToConvertTextField.text!)?.doubleValue else { return }
         
+        
         func conversion() {
             let result = currency1 * currency2
             convertedAmountTextField.text = "\(formatter.string(for: result)!)"
+            currencyDisplay.text =   "\(newRates.keys.sorted()[row]) \(newRates[currencyKey]!)"
+            
+            
         }
+        
         conversion()
         print(currency1)
         print(currency2)
     }
+    
 }
 
-extension ConverterViewController: CurrencyControllerDelegate {
+    extension ConverterViewController: CurrencyControllerDelegate {
     func didfetchRates() {
         newRates = currencyController.newRates
         currencyPicker.reloadAllComponents()
     }
-    
-    
-    
 }
 
 

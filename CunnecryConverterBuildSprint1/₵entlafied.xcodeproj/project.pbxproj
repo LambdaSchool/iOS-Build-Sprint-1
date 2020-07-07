@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		844B9B6E24B15C1F003BB980 /* united-states-of-america-flag-icon-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B9B6D24B15C1F003BB980 /* united-states-of-america-flag-icon-64.png */; };
+		844B9B7624B3B31E003BB980 /* textFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B9B7524B3B31E003BB980 /* textFieldDelegate.swift */; };
+		844B9B7924B3DAC5003BB980 /* CentlafiedIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 844B9B7824B3DAC5003BB980 /* CentlafiedIcon.jpg */; };
 		846E35B0249859C7004CC23F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E35AF249859C7004CC23F /* AppDelegate.swift */; };
 		846E35B2249859C7004CC23F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E35B1249859C7004CC23F /* SceneDelegate.swift */; };
 		846E35B7249859C8004CC23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E35B5249859C8004CC23F /* Main.storyboard */; };
@@ -19,8 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		844B9B6D24B15C1F003BB980 /* united-states-of-america-flag-icon-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "united-states-of-america-flag-icon-64.png"; sourceTree = "<group>"; };
-		846E35AC249859C7004CC23F /* CunnecryConverterBuildSprint1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CunnecryConverterBuildSprint1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		844B9B7524B3B31E003BB980 /* textFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldDelegate.swift; sourceTree = "<group>"; };
+		844B9B7824B3DAC5003BB980 /* CentlafiedIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CentlafiedIcon.jpg; sourceTree = "<group>"; };
+		844B9B7B24B3DBB8003BB980 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		846E35AC249859C7004CC23F /* ₵entlafied.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "₵entlafied.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		846E35AF249859C7004CC23F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846E35B1249859C7004CC23F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		846E35B6249859C8004CC23F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,7 +57,7 @@
 		846E35AD249859C7004CC23F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				846E35AC249859C7004CC23F /* CunnecryConverterBuildSprint1.app */,
+				846E35AC249859C7004CC23F /* ₵entlafied.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,8 +71,9 @@
 				846E35C52499ABE5004CC23F /* Currency.swift */,
 				846E35C72499AF6C004CC23F /* CurrencyController.swift */,
 				846E35C32499ABA5004CC23F /* ConverterViewController.swift */,
+				844B9B7524B3B31E003BB980 /* textFieldDelegate.swift */,
 				846E35B8249859CB004CC23F /* Assets.xcassets */,
-				844B9B6D24B15C1F003BB980 /* united-states-of-america-flag-icon-64.png */,
+				844B9B7824B3DAC5003BB980 /* CentlafiedIcon.jpg */,
 				846E35BA249859CB004CC23F /* LaunchScreen.storyboard */,
 				846E35BD249859CB004CC23F /* Info.plist */,
 			);
@@ -79,9 +83,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		846E35AB249859C7004CC23F /* CunnecryConverterBuildSprint1 */ = {
+		846E35AB249859C7004CC23F /* ₵entlafied */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 846E35C0249859CB004CC23F /* Build configuration list for PBXNativeTarget "CunnecryConverterBuildSprint1" */;
+			buildConfigurationList = 846E35C0249859CB004CC23F /* Build configuration list for PBXNativeTarget "₵entlafied" */;
 			buildPhases = (
 				846E35A8249859C7004CC23F /* Sources */,
 				846E35A9249859C7004CC23F /* Frameworks */,
@@ -91,9 +95,9 @@
 			);
 			dependencies = (
 			);
-			name = CunnecryConverterBuildSprint1;
+			name = "₵entlafied";
 			productName = CunnecryConverterBuildSprint1;
-			productReference = 846E35AC249859C7004CC23F /* CunnecryConverterBuildSprint1.app */;
+			productReference = 846E35AC249859C7004CC23F /* ₵entlafied.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +115,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 846E35A7249859C7004CC23F /* Build configuration list for PBXProject "CunnecryConverterBuildSprint1" */;
+			buildConfigurationList = 846E35A7249859C7004CC23F /* Build configuration list for PBXProject "₵entlafied" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,7 +128,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				846E35AB249859C7004CC23F /* CunnecryConverterBuildSprint1 */,
+				846E35AB249859C7004CC23F /* ₵entlafied */,
 			);
 		};
 /* End PBXProject section */
@@ -135,9 +139,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				846E35BC249859CB004CC23F /* LaunchScreen.storyboard in Resources */,
+				844B9B7924B3DAC5003BB980 /* CentlafiedIcon.jpg in Resources */,
 				846E35B9249859CB004CC23F /* Assets.xcassets in Resources */,
 				846E35B7249859C8004CC23F /* Main.storyboard in Resources */,
-				844B9B6E24B15C1F003BB980 /* united-states-of-america-flag-icon-64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +156,7 @@
 				846E35B0249859C7004CC23F /* AppDelegate.swift in Sources */,
 				846E35C82499AF6C004CC23F /* CurrencyController.swift in Sources */,
 				846E35B2249859C7004CC23F /* SceneDelegate.swift in Sources */,
+				844B9B7624B3B31E003BB980 /* textFieldDelegate.swift in Sources */,
 				846E35C42499ABA5004CC23F /* ConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +168,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				846E35B6249859C8004CC23F /* Base */,
+				844B9B7B24B3DBB8003BB980 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -331,7 +337,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		846E35A7249859C7004CC23F /* Build configuration list for PBXProject "CunnecryConverterBuildSprint1" */ = {
+		846E35A7249859C7004CC23F /* Build configuration list for PBXProject "₵entlafied" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				846E35BE249859CB004CC23F /* Debug */,
@@ -340,7 +346,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		846E35C0249859CB004CC23F /* Build configuration list for PBXNativeTarget "CunnecryConverterBuildSprint1" */ = {
+		846E35C0249859CB004CC23F /* Build configuration list for PBXNativeTarget "₵entlafied" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				846E35C1249859CB004CC23F /* Debug */,
