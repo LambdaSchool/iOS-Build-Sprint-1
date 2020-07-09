@@ -42,7 +42,6 @@ class CurrencyController {
                 let currency = try JSONDecoder().decode(Currency.self, from: data)
                 DispatchQueue.main.async {
                     self.newRates = currency.rates
-                    self.saveToPersistentStore()
                 }
                 
             } catch {
@@ -60,7 +59,7 @@ class CurrencyController {
         return dir.appendingPathComponent("rates.plist")
     }
     
-    private func saveToPersistentStore() {
+    func saveToPersistentStore() {
         guard let url = persistantFileURL else { return }
         
         do {

@@ -13,8 +13,13 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
         currencyController.fetchRates()
-        currencyController.delegate = self
+        currencyController.saveToPersistentStore()
         currencyController.loadFromPersistentStore()
+        currencyController.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     @IBOutlet weak var currencyPicker: UIPickerView!
