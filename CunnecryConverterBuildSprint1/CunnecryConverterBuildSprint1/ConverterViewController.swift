@@ -83,27 +83,25 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
         return "\(currencyNames.sorted()[row])"
     }
     
+    lazy var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
+    func convert(from inputCurrency: Double, to outputCurrency: Double ) {
+        let result = inputCurrency * outputCurrency
+        amountToConvertTextField.resignFirstResponder()
+        convertedAmountTextField.text = "\(currencyFormatter.string(for: result)!)"
+    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        
         let currencyKey = Array(newRates.keys.sorted())[row]
-        guard let currency1 = newRates[currencyKey] else { return }
-        guard let currency2 = NumberFormatter().number(from: amountToConvertTextField.text!)?.doubleValue else { return }
-        
-        
-        func conversion() {
-            let result = currency1 * currency2
-            amountToConvertTextField.resignFirstResponder()
-            convertedAmountTextField.text = "\(formatter.string(for: result)!)"
-            currencyDisplay.text = "\(newRates.keys.sorted()[row]) \(newRates[currencyKey]!)"
-                    }
-        
-        conversion()
-        print(currency1)
-        print(currency2)
+        guard let inputCurrency = newRates[currencyKey] else { return }
+        guard let outputCurrency = NumberFormatter().number(from: amountToConvertTextField.text!)?.doubleValue else { return }
+        currencyDisplay.text = "\(newRates.keys.sorted()[row]) \(newRates[currencyKey]!)"
+        convert(from: inputCurrency, to: outputCurrency)
     }
 }
 
