@@ -90,7 +90,6 @@
                                         <state key="normal" title="="/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
                                     <constraint firstItem="5s3-nP-tTZ" firstAttribute="top" secondItem="HgU-7y-PqZ" secondAttribute="bottom" constant="7" id="1Ap-o3-MpM"/>
                                     <constraint firstItem="5KG-44-ZjZ" firstAttribute="leading" secondItem="Gjv-oC-nv5" secondAttribute="trailing" constant="8" id="3KV-D3-3u8"/>
@@ -145,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wk8-5c-tnw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="492.75362318840581" y="-19.419642857142858"/>
+            <point key="canvasLocation" x="492.1875" y="-20.289855072463769"/>
         </scene>
     </scenes>
     <resources>

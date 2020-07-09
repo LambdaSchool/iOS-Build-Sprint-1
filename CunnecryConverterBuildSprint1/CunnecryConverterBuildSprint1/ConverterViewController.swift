@@ -96,10 +96,10 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
         
         func conversion() {
             let result = currency1 * currency2
+            amountToConvertTextField.resignFirstResponder()
             convertedAmountTextField.text = "\(formatter.string(for: result)!)"
             currencyDisplay.text = "\(newRates.keys.sorted()[row]) \(newRates[currencyKey]!)"
-            
-        }
+                    }
         
         conversion()
         print(currency1)
@@ -107,7 +107,7 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
 }
 
-    extension ConverterViewController: CurrencyControllerDelegate {
+extension ConverterViewController: CurrencyControllerDelegate {
     func didfetchRates() {
         newRates = currencyController.newRates
         currencyPicker.reloadAllComponents()
