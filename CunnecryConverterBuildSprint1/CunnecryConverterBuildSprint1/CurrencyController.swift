@@ -16,9 +16,10 @@ protocol CurrencyControllerDelegate {
 class CurrencyController {
     
     var delegate: CurrencyControllerDelegate?
-
+    
     var newRates: [String: Double] = [:] {
         didSet { delegate?.didfetchRates()
+            
             print(newRates)
         }
     }
@@ -41,6 +42,7 @@ class CurrencyController {
                 let currency = try JSONDecoder().decode(Currency.self, from: data)
                 DispatchQueue.main.async {
                     self.newRates = currency.rates
+                    self.saveToPersistentStore()
                 }
                 
             } catch {
@@ -49,9 +51,48 @@ class CurrencyController {
             
         }.resume()
         
+    }
+    
+    private var persistantFileURL: URL? {
         
+        let fm = FileManager.default
+        guard let dir = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil}
+        return dir.appendingPathComponent("rates.plist")
+    }
+    
+    private func saveToPersistentStore() {
+        guard let url = persistantFileURL else { return }
+        
+        do {
+            
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(newRates)
+            try data.write(to: url)
+            
+        } catch {
+            print("Was not able to encode data")
+            NSLog("Was not able to encode data: \(error)")
+        }
+    }
+    
+    func loadFromPersistentStore() {
+        
+        let fm = FileManager.default
+        
+        guard let url = persistantFileURL, fm.fileExists(atPath: url.path) else { return }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let currency = try decoder.decode(Currency.self, from: data)
+                self.newRates = currency.rates
+            
+        } catch {
+            
+            print("No data was saved")
+            
+        }
     }
 }
-
 
 

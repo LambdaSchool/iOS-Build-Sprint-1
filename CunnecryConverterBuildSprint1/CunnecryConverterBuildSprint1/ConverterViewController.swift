@@ -14,6 +14,7 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
         super.viewDidLoad()
         currencyController.fetchRates()
         currencyController.delegate = self
+        currencyController.loadFromPersistentStore()
     }
     
     @IBOutlet weak var currencyPicker: UIPickerView!
@@ -66,7 +67,7 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return newRates.count
+        return currencyNames.count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -91,8 +92,7 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
         func conversion() {
             let result = currency1 * currency2
             convertedAmountTextField.text = "\(formatter.string(for: result)!)"
-            currencyDisplay.text =   "\(newRates.keys.sorted()[row]) \(newRates[currencyKey]!)"
-            
+            currencyDisplay.text = "\(newRates.keys.sorted()[row]) \(newRates[currencyKey]!)"
             
         }
         
@@ -100,7 +100,6 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
         print(currency1)
         print(currency2)
     }
-    
 }
 
     extension ConverterViewController: CurrencyControllerDelegate {
@@ -109,7 +108,5 @@ class ConverterViewController: UIViewController, UIPickerViewDataSource, UIPicke
         currencyPicker.reloadAllComponents()
     }
 }
-
-
 
 
