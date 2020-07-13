@@ -42,6 +42,9 @@ class CurrencyController {
                 let currency = try JSONDecoder().decode(Currency.self, from: data)
                 DispatchQueue.main.async {
                     self.newRates = currency.rates
+                    self.saveToPersistentStore()
+                    self.loadFromPersistentStore()
+                    
                 }
                 
             } catch {
